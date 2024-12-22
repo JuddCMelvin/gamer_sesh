@@ -5,6 +5,9 @@ const express = require('express')
 // Initialize the app object.
 const app = express()
 
+//Controllers
+app.use('/games', require('./controllers/games'))
+
 // Create a homepage route.
 app.get('/', (req, res)  => {
     // This gets sent to the client
