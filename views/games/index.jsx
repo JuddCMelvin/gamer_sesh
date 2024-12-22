@@ -20,6 +20,9 @@ function Index({ games, title }) {
                     })
                 }
             </ul>
+            <div className="newButton">
+                <a href="/games/new"><button>Add a new game</button></a>
+            </div>
         </Default>
     )
 }

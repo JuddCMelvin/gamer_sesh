@@ -11,6 +11,11 @@ games.get('/', (req,res) => {
     )
 })
 
+// NEW
+games.get('/new', (req, res) => {
+    res.render('games/new')
+})
+
 // SHOW
 games.get('/:id', (req, res) => {
     if (Game[req.params.id]) {
@@ -22,4 +27,16 @@ games.get('/:id', (req, res) => {
     }
 })
 
+// CREATE
+games.post('/', (req, res) => {
+    console.log(req.body)
+    // if (!req.body.image) {
+    //     req.body.image = 'https://placehold.co/400?text=placeholder'
+    // }
+    Game.push(req.body)
+    res.redirect('games/index')
+})
+
+
 module.exports = games
+
