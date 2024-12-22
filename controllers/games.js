@@ -3,16 +3,23 @@ const games = express.Router()
 const Game = require('../models/game.js')
 
 games.get('/', (req,res) => {
-    res.render('index', 
+    res.render('games/index', 
         {
-        games: Game
+        games: Game,
+        title: 'All Games'
         }
     )
 })
 
 // SHOW
 games.get('/:id', (req, res) => {
-    res.send(Game[req.params.id])
+    if (Game[req.params.id]) {
+        res.render('games/show', {
+            game: Game[req.params.id]
+        })
+    } else {
+        res.render('error404')
+    }
 })
 
 module.exports = games
