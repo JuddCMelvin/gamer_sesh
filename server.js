@@ -8,6 +8,11 @@ const app = express()
 //Controllers
 app.use('/games', require('./controllers/games'))
 
+// MIDDLEWARE
+app.set('views', __dirname + '/views')
+app.set('view engine', 'jsx')
+app.engine('jsx', require('express-react-views').createEngine())
+
 // Create a homepage route.
 app.get('/', (req, res)  => {
     // This gets sent to the client
