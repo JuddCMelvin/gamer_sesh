@@ -1,8 +1,9 @@
 const express = require('express')
 const games = express.Router()
+const Game = require('../models/game.js')
 
 games.get('/', (req,res) => {
-    res.send('GET/games')
+    res.send(Game)
 })
 
-module.exports = router
+module.exports = games
