@@ -1,11 +1,11 @@
 const React = require('react')
 const Default = require('../layouts/default')
 
-function New () {
+function Edit (game, index) {
     return (
         <Default>
         <h2>Add or Edit a Game</h2>
-        <form action="/games" method="POST">
+        <form action={`/games/${index}?_method=PUT`} method="POST">
             {/* Title */}
             <label htmlFor="name">Title</label>
             <input 
@@ -52,12 +52,12 @@ function New () {
 
             {/* Submit Button */}
             <br />
-            <input type="submit" value="Save Game" />
+            <input type="submit" />
         </form>
     </Default>
     );
 }
 
-module.exports = New
+module.exports = Edit
 
 

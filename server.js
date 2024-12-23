@@ -1,20 +1,20 @@
 // Require needed modules.
 require('dotenv').config()
 const express = require('express')
-
-// Initialize the app object.
+const methodOverride = require('method-override')
 const app = express()
-
-//Controllers
-app.use('/games', require('./controllers/games'))
 
 // MIDDLEWARE
 app.set('views', __dirname + '/views')
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
 app.use(express.static('public'))
+app.use(express.json());
 app.use(express.urlencoded({extended: true}))
+app.use(methodOverride('_method'))
 
+//Controllers
+app.use('/games', require('./controllers/games'))
 
 // Create a homepage route.
 app.get('/', (req, res)  => {

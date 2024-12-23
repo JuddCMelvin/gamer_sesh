@@ -10,10 +10,11 @@ function Index({ games, title }) {
             <ul>
                 {
                     games.map((game, index) => {
+                        console.log(game)
                         return (
                             <li key={index}>
                                 <a href={`/games/${index}`}>
-                                    {game.title}
+                                    {game.name}
                                 </a>
                             </li>
                         )
